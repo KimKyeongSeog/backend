@@ -81,9 +81,11 @@ router.put("/:todoId/done", (req, res) => {
   return res.json({ todo: updateTodo });
 });
 
-router.put("/:todoId", (res, req) => {
+router.put("/:todoId", (req, res) => {
   const { todoId } = req.params;
   const { title } = req.body; //내용을 받아오기에 body를 받아옴
+
+  console.log(todoId);
 
   if (isNaN(todoId) || !title) {
     return res.status(400).json({
